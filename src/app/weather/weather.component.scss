@@ -1,0 +1,134 @@
+.container {
+    width: 100%;
+    height: 100vh;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    background-image: linear-gradient(rgba(0,8,51,0.9),rgba(0,8,51,0.9)), url(../../assets/pexels-pixabay-417192.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.weatherTitle {
+    font-size: 80px;
+    color: whitesmoke;
+}
+
+button {
+    font-family: cursive;
+}
+
+input {
+    font-family: cursive;
+}
+
+.search-container {
+    margin-top: 30px;
+    width: 100%;
+    max-width: 500px;
+    height: 50px;
+    background: rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    border-radius: 60px;
+    padding: 10px 10px;
+    backdrop-filter: blur(4px) saturate(80%);
+}
+
+.search-container input {
+    background: transparent;
+    flex: 1;
+    border: 0px;
+    outline: none;
+    padding: 20px 20px;
+    font-size: 20px;
+    color: #cac7ff;
+}
+
+.search-container button img{
+    width: 30px;
+    height: 30px;
+}
+
+.search-container button {
+    border: 0;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    background: #58629b;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+::placeholder {
+    color: #cac7ff;
+}
+
+
+.weatherDataContainer {
+    border-radius: 20px;
+    color: #c7c5e9;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+    height: 500px;
+    width: 500px;
+    background-color: #58629b;
+    padding-bottom: 20px;
+    box-shadow: 2px 2px 10px rgba(76, 95, 199, 0.9);
+}
+
+.weatherType {
+    font-size: 20px;
+}
+
+.cityName {
+    font-size: 35px;
+    padding-top: 10px;
+}
+
+.temperature {
+    font-size: 25px;
+}
+
+.tempType {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.weatherDataContainer img {
+    height: 80px;
+    width: 80px;
+}
+
+.forecast-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.weather-cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 15px;
+    transition:
+    transform 0.5s
+}
+
+.weather-cards:hover {
+    transform: scale(1.2);
+}
+
+.errorMsg {
+    font-size: 30px;
+    color: rgb(221, 50, 50);
+}
+
+

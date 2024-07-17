@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="weatherTitle" *ngIf="!tempdata">
+        Welcome to Daily Weather
+    </div>
+    
+    <div class="search-container">
+      <input type="text" [(ngModel)]="cityName" placeholder="Enter City">
+      <button (click)="getWeatherData()"><img src="../../assets/search.png"></button>
+    </div>
+
+    <div class="weatherDataContainer" *ngIf="tempdata && !someIssue">
+        <div class="cityName">{{tempdata?.location?.name}}</div>
+        <img src={{getIcon()}}>
+        <div *ngIf="tempType === 'celcius'" class="temperature">Temperature : {{tempdata?.current?.temp_c}}&deg; {{getTempUnit()}}</div>
+        <div *ngIf="tempType === 'fahrenheit'" class="temperature">Temperature : {{tempdata?.current?.temp_f}}&deg; {{getTempUnit()}}</div>
+        <div class="weatherType">{{tempdata?.current?.condition?.text}}</div>
+        <div class="wind">Wind : {{tempdata?.current?.wind_kph}} kph {{tempdata?.current?.wind_dir}}</div>
+        <div class="humidity">Humidity : {{tempdata?.current?.humidity}}%</div>
+        
+        <div class="forecast-container">
+            <div class="weather-cards" *ngFor="let forecast of tempdata.forecast.forecastday">
+                <img src={{getForecastIcon(forecast)}}>
+                <div *ngIf="tempType === 'celcius'">{{forecast.day.avgtemp_c}}&deg; {{getTempUnit()}}</div>
+                <div *ngIf="tempType === 'fahrenheit'">{{forecast.day.avgtemp_f}}&deg; {{getTempUnit()}}</div>
+            </div>
+        </div>
+
+        <div class="tempType">
+            <label class="temp-type"><input type="radio" name="celcius" (change)="tempTypeValueChange($event)" value="celcius" [(ngModel)]="tempType">Celcius</label>
+            <label class="temp-type"><input type="radio" name="fahrenheit" (change)="tempTypeValueChange($event)" value="fahrenheit" [(ngModel)]="tempType">Fahrenheit</label>
+        </div>
+    </div>
+
+    <div class="errorMsg" *ngIf="someIssue">
+        Sorry ! Unable to fetch this location
+    </div>
+</div>
